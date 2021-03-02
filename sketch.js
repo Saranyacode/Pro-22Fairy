@@ -43,10 +43,34 @@ function setup() {
 function draw() {
   background(bgImg);
 
+  star.x= starBody.position.x 
+  star.y= starBody.position.y 
+
+  console.log(star.y);
+
+  if(star.y > 470 && starBody.position.y > 470 && star.isTouching(fairy) ){
+  	Matter.Body.setStatic(starBody,true);
+  }
+
   drawSprites();
+
 
 }
 
 function keyPressed() {
 	//write code here
-}
+
+		if(keyCode === RIGHT_ARROW){
+			   fairy.x = fairy.x + 30;
+		}
+		
+		if(keyCode === LEFT_ARROW){
+			   fairy.x = fairy.x - 30;
+		}
+	
+		if (keyCode === DOWN_ARROW) {
+			Matter.Body.setStatic(starBody,false); 
+		}
+	}
+	
+
